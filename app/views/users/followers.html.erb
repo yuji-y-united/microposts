@@ -2,11 +2,13 @@
   <div class="row">
       <div class="col-md-8">
         <h3>Followers</h3>
-        <% if @user.follower_users.any? %>
+        <% if @fuser.any? %>
           <ol class="followings-followers">
-           
-              <%= render 'followers' %>
-           
+            <% @fuser.each do |f_user| %>
+              <li id="follower_user-<%= f_user.id %>"> 
+                <%= render 'followings_followers', f_user: f_user %>
+              </li>
+            <% end %>
           </ol>
         <% end %>
       </div>
