@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="row">
     <aside class="col-md-4">
         <section class="user_info">
@@ -7,7 +6,7 @@
                 <%= @user.name %>
                 <br />
                 <%= link_to pluralize(@user.following_users.count, "following"), followings_path(@user) %>, 
-                <%= link_to pluralize(@user.follower_users.count, "followers"), followers_path(@user) %></span>
+                <%= link_to pluralize(@user.follower_users.count, "follower"), followers_path(@user) %></span>
             </h1>
             <div class="col-md-8">
                 <label>location:</label>
