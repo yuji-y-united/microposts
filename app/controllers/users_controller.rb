@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
-  
+  before_action :validate_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -19,6 +20,15 @@ class UsersController < ApplicationController
   def followers
     @fuser = @user.follower_users
   end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = 'update your profile'
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
   
   
   def create
@@ -34,11 +44,16 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profmessage, :area)
   end
   
   def set_user
     @user = User.find(params[:id])
   end
   
+  def validate_user
+    if current_user != @user
+      redirect_to @user
+    end
+  end
 end

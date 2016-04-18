@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 }, 
                       format: { with: VALID_EMAIL_REGEX}, 
                       uniqueness: { case_sensitive: false }
+    validates :profmessage, length: { maximum: 160 }
+    validates :area, length: { maximum: 50 }
     has_secure_password
     has_many :microposts
     has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
