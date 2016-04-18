@@ -1,0 +1,11 @@
+<% @user.following_users.each do |f_user| %>
+<li id="following_user-<%= f_user.id %>">
+            <%= link_to gravatar_for(f_user, size: 70), f_user %>
+            <span class="user"><%= link_to f_user.name, f_user %></span>
+            <br />
+            <span><%= pluralize(f_user.microposts.count, "micropost") %></span>
+            <br />
+            <span><%= pluralize(f_user.following_users.count, "following") %></span>
+            <span>, <%= pluralize(f_user.follower_users.count, "followers") %></span>
+</li>
+<% end %>

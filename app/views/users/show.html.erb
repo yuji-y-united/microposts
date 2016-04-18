@@ -4,6 +4,9 @@
             <h1>
                 <%= gravatar_for @user %>
                 <%= @user.name %>
+                <br />
+                <%= link_to pluralize(@user.following_users.count, "following"), followings_path(@user) %>, 
+                <%= link_to pluralize(@user.follower_users.count, "followers"), followers_path(@user) %></span>
             </h1>
         </section>
     </aside>
