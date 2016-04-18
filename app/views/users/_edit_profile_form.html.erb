@@ -15,6 +15,12 @@
           <%= f.label :profmessage, "Profile message" %>
           <%= f.text_area :profmessage, class: 'form-control' %>
           
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+          
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          
           <%= f.submit "update my profile", class: "btn btn-primary" %>
         <% end %>
         
