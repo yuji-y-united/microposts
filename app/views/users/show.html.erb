@@ -3,3 +3,11 @@
     <%= @user.name %>
     
 </h1>
+<div class="panel-body">
+    <span>message</span>
+    <%= @user.profmessage %>
+    <% if current_user == @user %>
+        <br />
+        <%= link_to "edit" , edit_user_path(@user), class: "label label-info" %>
+    <% end %>
+</div>
