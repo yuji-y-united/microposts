@@ -3,6 +3,7 @@
       <div class="col-md-8">
         <h3>Followers</h3>
         <% if @fuser.any? %>
+          <%= paginate @fuser %>
           <ol class="followings-followers">
             <% @fuser.each do |f_user| %>
               <li id="follower_user-<%= f_user.id %>"> 

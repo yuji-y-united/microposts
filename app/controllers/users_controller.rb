@@ -7,18 +7,18 @@ class UsersController < ApplicationController
   end
   
   def show
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def edit
   end
   
   def followings
-    @fuser = @user.following_users
+    @fuser = @user.following_users.page(params[:page]).per(10)
   end
   
   def followers
-    @fuser = @user.follower_users
+    @fuser = @user.follower_users.page(params[:page]).per(10)
   end
 
   def update
